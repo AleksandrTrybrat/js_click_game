@@ -255,3 +255,13 @@ a {
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.potion {
+    position: relative;
+}
+
+#lifeImage {
+    position: absolute;
+    top: 710px;
+    left: 20px;
+}

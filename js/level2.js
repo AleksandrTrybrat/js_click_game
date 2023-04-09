@@ -112,7 +112,6 @@ hands4Gun.addEventListener("click", function() {
 });
 
 window.addEventListener("keydown", (e) => {
-  console.log(e.code);
   if (e.code === 'Digit1') {
     hands2Gun.src = "/img/players/hands41-removbg-preview.png";
   } else if (e.code === 'Digit2') {
@@ -141,14 +140,31 @@ if (savedWeapon) {
   =================== ЗВУК УДАРА ПРИ КЛИКЕ НА ВРАГА =======================
   */
   
+// const roundOneEvil = document.querySelector('.clickFight')
+
+// const soundFight = new AudioFactory();
+// const roundSoundFight = audioFactory.create("/audio/fight.mp3");
+// function fightRound() {
+//   roundSoundFight.play();
+// }
+// roundOneEvil.addEventListener("click", fightRound);
 const roundOneEvil = document.querySelector('.clickFight')
 
-const soundFight = new AudioFactory();
-const roundSoundFight = audioFactory.create("/audio/fight.mp3");
-function fightRound() {
-  roundSoundFight.play();
-}
-roundOneEvil.addEventListener("click", fightRound);
+let countShot = 1;
+roundOneEvil.addEventListener("click", () => {
+  // const soundFight = new AudioFactory();
+  const roundSoundFight = audioFactory.create("/audio/fight.mp3");
+  // function fightRound() {
+    roundSoundFight.play();
+  // }
+
+  if (countShot === 4) {
+    // const fatallity = new AudioFactory();
+    const roundSoundFatallity = audioFactory.create("/audio/fatality.mp3");
+    roundSoundFatallity.play();
+  }
+  countShot++;
+});
 
   /*
   =================== ДВИЖЕНИЕ ОРУЖИЯ ЗА КУРСОРОМ =========================
@@ -194,20 +210,38 @@ function updateMainPlayerLives() {
     let gameOver = document.getElementById('gameOver');
     gameOver.style.zIndex = 2;
     gameOver.addEventListener("mouseenter", () => {
-      const audioLaught = new Audio();
-      audioLaught.src = "/audio/sounds/ha_ha_ha.mp3";
-      audioLaught.play();
+      const audioLaughs = new Audio();
+      audioLaughs.src = "/audio/ha_ha_ha.mp3";
+      audioLaughs.play();
     }, {once: true});
   }
 }
 
-function updatePlayerLives() {
-  if (playerLife > 0) {
-    playerLife--;
-    playerLives[playerLife].style.backgroundColor = "transparent";
-    lifeChangeSubject.notify(-1);
+// Пополнение жизней по клику на бутылочку
+const lifeImage = document.getElementById('lifeImage');
+// lifeImage.addEventListener('click', () => {
+//   increaseMainPlayerLives();
+// });
+window.addEventListener('keydown', (e) => {
+  if (e.code === 'Digit4') {
+    increaseMainPlayerLives();
+  }
+});
+let maxMainPlayerLife = 5;
+function increaseMainPlayerLives() {
+  if (mainPlayerLife < maxMainPlayerLife) {
+    mainPlayerLife++;
+    mainPlayerLives[mainPlayerLife - 1].style.backgroundColor = "rgb(32, 128, 200)";
+    lifeChangeSubject.notify(1);
   }
 }
+// function updatePlayerLives() {
+//   if (playerLife > 0) {
+//     playerLife--;
+//     playerLives[playerLife].style.backgroundColor = "transparent";
+//     lifeChangeSubject.notify(-1);
+//   }
+// }
 
 clickFight.addEventListener('click', function() {
   if (playerLife > 0) {
