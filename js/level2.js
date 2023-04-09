@@ -205,7 +205,8 @@ function updateMainPlayerLives() {
     mainPlayerLife--;
     mainPlayerLives[mainPlayerLife].style.backgroundColor = "transparent";
     lifeChangeSubject.notify(-1);
-  } else {
+  } 
+  if (mainPlayerLife === 0) {
     clearInterval(idInterval);
     let gameOver = document.getElementById('gameOver');
     gameOver.style.zIndex = 0;
