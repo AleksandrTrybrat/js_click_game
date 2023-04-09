@@ -16,7 +16,13 @@ html, body {
     background-color: rgba(0, 0, 0, 0.788);
     display: flex;
     justify-content: center;
-    align-items: center;
+    animation: round 2s linear forwards;
+}
+
+@keyframes round {
+    to {
+        opacity: 0;
+    }
 }
 
 
