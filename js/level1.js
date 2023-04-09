@@ -122,14 +122,31 @@ window.addEventListener("keydown", (e) => {
   =================== ЗВУК УДАРА ПРИ КЛИКЕ НА ВРАГА =======================
   */
   
+// const roundOneEvil = document.querySelector('.clickFight')
+
+// const soundFight = new AudioFactory();
+// const roundSoundFight = audioFactory.create("/audio/fight.mp3");
+// function fightRound() {
+//   roundSoundFight.play();
+// }
+// roundOneEvil.addEventListener("click", fightRound);
 const roundOneEvil = document.querySelector('.clickFight')
 
-const soundFight = new AudioFactory();
-const roundSoundFight = audioFactory.create("/audio/fight.mp3");
-function fightRound() {
-  roundSoundFight.play();
-}
-roundOneEvil.addEventListener("click", fightRound);
+let countShot = 1;
+roundOneEvil.addEventListener("click", () => {
+  const soundFight = new AudioFactory();
+  const roundSoundFight = audioFactory.create("/audio/fight.mp3");
+  // function fightRound() {
+    roundSoundFight.play();
+  // }
+
+  if (countShot === 4) {
+    const fatallity = new AudioFactory();
+    const roundSoundFatallity = audioFactory.create("/audio/fatality.mp3");
+    roundSoundFatallity.play();
+  }
+  countShot++;
+});
 
   /*
   =================== ДВИЖЕНИЕ ОРУЖИЯ ЗА КУРСОРОМ =========================
