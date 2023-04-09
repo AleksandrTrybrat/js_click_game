@@ -207,7 +207,7 @@ function updateMainPlayerLives() {
   } else {
     clearInterval(idInterval);
     let gameOver = document.getElementById('gameOver');
-    gameOver.style.zIndex = 2;
+    gameOver.style.zIndex = 0;
     gameOver.addEventListener("mouseenter", () => {
       const audioLaughs = new Audio();
       audioLaughs.src = "/audio/ha_ha_ha.mp3";
