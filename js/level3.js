@@ -260,7 +260,7 @@ clickFight.addEventListener('click', function() {
 let idInterval = 0;
 idInterval = setInterval(function() {
   updateMainPlayerLives();
-}, 5000);
+}, 3000);
 
 window.addEventListener("keydown", (e) => {
   if (e.code === 'Space') {
@@ -272,7 +272,7 @@ window.addEventListener("keyup", (e) => {
   if (e.code === 'Space') {
     idInterval = setInterval(() => {
       updateMainPlayerLives();
-    }, 5000);
+    }, 3000);
   }
 });
 
