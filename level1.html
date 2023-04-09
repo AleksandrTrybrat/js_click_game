@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/Mortal_Kombat_Logo.svg.png">
+    <link rel="stylesheet" href="./css/style_level1.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <title>Level 1</title>
+</head>
+<body>
+
+    <div class="roundFirst" id="roundFirst">
+        <img class="roundFirstImg" src="./img/round_one.png" alt="Round">
+    </div>
+
+    <div class="text">My Lives</div>
+    <div class="mainPlayer">
+        <div class="mainPlayerlifeRoad"></div>
+        <div class="mainPlayerlifeRoad"></div>
+        <div class="mainPlayerlifeRoad"></div>
+        <div class="mainPlayerlifeRoad"></div>
+        <div class="mainPlayerlifeRoad"></div>
+    </div>
+
+<div id="player">
+    <div class="player">
+        <div class="lifeRoadBorder">
+            <div class="lifeRoad"></div>
+            <div class="lifeRoad"></div>
+            <div class="lifeRoad"></div>
+            <div class="lifeRoad"></div>
+            <div class="lifeRoad"></div>
+        </div>
+
+    <div class="clickFight"> <!--добавил этот клас и повесил на него клик для звуков удара-->
+        <img class="playerImg" src="./img/players/player1.png" alt="Image">
+        <img class="fire" src="./img/players/fire.png" alt="Ball">
+        <img class="bloodSplash" src="./img/players/blood-splash.png" alt="Blood">
+    </div>
+</div>
+
+    <div id="hands">
+        <div class="one">
+            <span>1</span>
+            <img id="hands1" src="./img/players/hands41-removbg-preview.png" alt="Gun">
+        </div>
+        <div class="two">
+            <span>2</span>
+            <img id="hands3" src="./img/players/hands3-removebg-preview.png" alt="Gun">
+         </div>
+         <div class="three">
+            <span>3</span>
+            <img id="hands4" src="./img/players/hands2-removebg-preview.png" alt="Gun">
+        </div>
+    </div>
+
+    <div class="handsOfMainPlayer">
+        <img id="hands2" src="./img/players/hands2-removebg-preview.png" alt="Gun">
+    </div>
+
+    <div id="gameOver"></div>
+
+    <a href="./index.html"><div id="back" class="back">BACK</div></a>
+    
+    <script defer src="./js/level1.js"></script>
+</body>
+</html>
