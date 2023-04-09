@@ -226,12 +226,9 @@ a {
     background-position: center;
 }
 
-.potion {
-    position: relative;
-}
 
 #lifeImage {
-    position: absolute;
-    top: 720px;
-    left: 20px;
+	position: fixed;
+	bottom: 0;
+	left: 20px;
 }
