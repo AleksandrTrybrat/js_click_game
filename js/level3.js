@@ -153,7 +153,7 @@ const roundOneEvil = document.querySelector('.clickFight')
 let countShot = 1;
 roundOneEvil.addEventListener("click", () => {
   // const soundFight = new AudioFactory();
-  const roundSoundFight = audioFactory.create("/audio/fight.mp3");
+  const roundSoundFight = audioFactory.create("/audio/fight2.mp3");
   // function fightRound() {
     roundSoundFight.play();
   // }
