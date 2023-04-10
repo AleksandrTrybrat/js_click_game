@@ -95,7 +95,11 @@ const hands3Gun = document.querySelector("#hands3");
 const hands2Gun = document.querySelector("#hands2");
 const hands4Gun = document.querySelector("#hands4");
 
-  
+// Save localStorage
+function saveWeaponChoice(weapon) {
+  localStorage.setItem('weaponChoice', weapon);
+}
+
 hands1Gun.addEventListener("click", () => {
   hands2Gun.src = "/img/players/hands41-removbg-preview.png";
   saveWeaponChoice('hands41');
@@ -114,10 +118,13 @@ hands4Gun.addEventListener("click", function() {
 window.addEventListener("keydown", (e) => {
   if (e.code === 'Digit1') {
     hands2Gun.src = "/img/players/hands41-removbg-preview.png";
+    saveWeaponChoice('hands41');
   } else if (e.code === 'Digit2') {
     hands2Gun.src = "/img/players/hands3-removebg-preview.png";
+    saveWeaponChoice('hands3');
   } else if (e.code === 'Digit3') {
     hands2Gun.src = "/img/players/hands2-removebg-preview.png";
+    saveWeaponChoice('hands2');
   }
 });
 

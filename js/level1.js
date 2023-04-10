@@ -89,7 +89,7 @@ back.addEventListener("mouseover", clickSound);
   /*
   =================== СМЕНА ОРУЖИЯ =======================
   */
-// const handsGun = document.querySelector("#hands");
+
 const hands1Gun = document.querySelector("#hands1");
 const hands3Gun = document.querySelector("#hands3");
 const hands2Gun = document.querySelector("#hands2");
