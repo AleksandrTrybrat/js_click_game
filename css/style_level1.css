@@ -242,12 +242,12 @@ a {
 
 #containerForBonus {
     position: relative;
-    top: 8vh;
+    top: 0;
     height: 5vh;
     width: 30vw;
     display: inline-block;
     vertical-align: middle;
-    left: 10px;
+    left: 35vw;
     text-align: center;
     font-family: 'Permanent Marker', cursive;
     font-size: 30px;
@@ -267,4 +267,9 @@ a {
     font-size: 70px;
     text-shadow: 2px 1px 5px rgb(12, 12, 12);
     color: rgb(98, 61, 107);
+    opacity: 1;
+}
+
+@keyframes bonusAnime {
+    to {opacity: 0;}
 }
