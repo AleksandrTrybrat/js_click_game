@@ -141,14 +141,12 @@ window.addEventListener("keydown", (e) => {
 // }
 // roundOneEvil.addEventListener("click", fightRound);
 
-// bonus
-const tagForBonus = document.createElement("div");
-tagForBonus.classList.add("bonus");
-document.body.append(tagForBonus);
-//
 
-let bonusNumberCounter = Number("");
+// sum of bonus
+let bonusNumberCounter = 0;
 
+// constanta for bonus
+const bonusNumber = 100;
 
 
 const roundOneEvil = document.querySelector('.clickFight')
@@ -170,12 +168,29 @@ roundOneEvil.addEventListener("click", () => {
    
   // bonus
 
-const bonusNumber = Math.floor((Math.random() * 50) + 100);
+  //создаем контейнер для показа зачисления бонуса +100
+  const tagForBonus = document.createElement("div");
+  tagForBonus.classList.add("bonus");
+  document.body.append(tagForBonus);
+
+  //записываем в textContent конейнера +100
 tagForBonus.textContent = "+" + bonusNumber;
+
+//анимируем показ зачислиных бонусов
+tagForBonus.style.animation ="bonusAnime 2s linear forwards"
+
+//суммируем все бонусы
 bonusNumberCounter += bonusNumber;
+
+//выводим сумму на страницу
 containerForBonus.textContent = "Total bonus : " + bonusNumberCounter;
+
 containerForBonus.style.backgroundColor = "rgb(122, 111, 111)";
 containerForBonus.style.border = "2px solid rgb(245, 242, 242)";
+containerForBonus.style.borderRadius = "20px";
+
+//если бонусов меньше 400 - жизни не пополняются
+
 if (bonusNumberCounter >= 400) {
   // Пополнение жизней по клику на бутылочку
 const lifeImage = document.getElementById('lifeImage');
