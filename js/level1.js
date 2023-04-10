@@ -140,6 +140,17 @@ window.addEventListener("keydown", (e) => {
 //   roundSoundFight.play();
 // }
 // roundOneEvil.addEventListener("click", fightRound);
+
+// bonus
+const tagForBonus = document.createElement("div");
+tagForBonus.classList.add("bonus");
+document.body.append(tagForBonus);
+//
+
+let bonusNumberCounter = Number("");
+
+
+
 const roundOneEvil = document.querySelector('.clickFight')
 
 let countShot = 1;
@@ -156,6 +167,27 @@ roundOneEvil.addEventListener("click", () => {
     roundSoundFatallity.play();
   }
   countShot++;
+   
+  // bonus
+
+const bonusNumber = Math.floor((Math.random() * 50) + 100);
+tagForBonus.textContent = "+" + bonusNumber;
+bonusNumberCounter += bonusNumber;
+containerForBonus.textContent = "Total bonus : " + bonusNumberCounter;
+containerForBonus.style.backgroundColor = "rgb(122, 111, 111)";
+containerForBonus.style.border = "2px solid rgb(245, 242, 242)";
+if (bonusNumberCounter >= 400) {
+  // Пополнение жизней по клику на бутылочку
+const lifeImage = document.getElementById('lifeImage');
+// lifeImage.addEventListener('click', () => {
+//   increaseMainPlayerLives();
+// });
+window.addEventListener('keydown', (e) => {
+  if (e.code === 'Digit4') {
+    increaseMainPlayerLives();
+  }
+});
+}
 });
 
   /*
@@ -210,16 +242,7 @@ function updateMainPlayerLives() {
   }
 }
 
-// Пополнение жизней по клику на бутылочку
-const lifeImage = document.getElementById('lifeImage');
-// lifeImage.addEventListener('click', () => {
-//   increaseMainPlayerLives();
-// });
-window.addEventListener('keydown', (e) => {
-  if (e.code === 'Digit4') {
-    increaseMainPlayerLives();
-  }
-});
+
 let maxMainPlayerLife = 5;
 function increaseMainPlayerLives() {
   if (mainPlayerLife < maxMainPlayerLife) {
