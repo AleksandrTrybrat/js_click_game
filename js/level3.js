@@ -78,7 +78,6 @@ function clickSound() {
   clickBtnGun.play();
 }
 
-  
   // Добавляем слушатель события на кнопки
 hands1.addEventListener("mouseover", clickSound);
 hands3.addEventListener("mouseover", clickSound);
