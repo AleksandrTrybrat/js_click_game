@@ -189,14 +189,18 @@ roundOneEvil.addEventListener("click", () => {
   containerForBonus.style.border = "2px solid rgb(245, 242, 242)";
   containerForBonus.style.borderRadius = "20px";
 
-//если бонусов меньше 400 - жизни не пополняются
-
+//если бонусов меньше 400 - жизни не пополняются, при наборе 400 можно пополнить только один раз жизнь без бонусов нельзя
+let canIncreaseLives = false;
   if (bonusNumberCounter >= 400) {
+    canIncreaseLives = true;
   // Пополнение жизней по клику на бутылочку
     const lifeImage = document.getElementById('lifeImage');
     window.addEventListener('keydown', (e) => {
-      if (e.code === 'Digit4') {
+      if (canIncreaseLives && e.code === 'Digit4') {
         increaseMainPlayerLives();
+        canIncreaseLives = false;
+        bonusNumberCounter = 0;
+        containerForBonus.textContent = "Total bonus : " + bonusNumberCounter;
       }
     });
   } 
@@ -253,11 +257,11 @@ function increaseMainPlayerLives() {
     mainPlayerLife++;
     mainPlayerLives[mainPlayerLife - 1].style.backgroundColor = "rgb(153, 0, 255)";
     lifeChangeSubject.notify(1);
-    // обнуление бонусов при пополнении жизней
-    if (bonusNumberCounter >= 400) {
-      bonusNumberCounter = 0; // обнуляем счетчик бонусов
-      containerForBonus.textContent = "Total bonus : " + bonusNumberCounter;
-    }
+    // // обнуление бонусов при пополнении жизней
+    // if (bonusNumberCounter >= 400) {
+    //   bonusNumberCounter = 0; // обнуляем счетчик бонусов
+    //   containerForBonus.textContent = "Total bonus : " + bonusNumberCounter;
+    // }
   }
 }
 
