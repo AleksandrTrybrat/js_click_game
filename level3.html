@@ -18,6 +18,7 @@
     </div> 
  
  <div class="text">My Lives</div>
+
  <div class="mainPlayer">
      <div class="mainPlayerlifeRoad"></div>
      <div class="mainPlayerlifeRoad"></div>
@@ -26,50 +27,53 @@
      <div class="mainPlayerlifeRoad"></div>
  </div>
 
+ <div id="containerForBonus"></div> 
+
 <div id="player">
- <div class="player">
-     <div class="lifeRoadBorder">
-         <div class="lifeRoad"></div>
-         <div class="lifeRoad"></div>
-         <div class="lifeRoad"></div>
-         <div class="lifeRoad"></div>
-         <div class="lifeRoad"></div>
-     </div>
+    <div class="player">
+        <div class="lifeRoadBorder">
+            <div class="lifeRoad"></div>
+            <div class="lifeRoad"></div>
+            <div class="lifeRoad"></div>
+            <div class="lifeRoad"></div>
+            <div class="lifeRoad"></div>
+        </div>
 
- <div class="clickFight"> <!--добавил этот клас и повесил на него клик для звуков удара-->
-     <img class="playerImg" src="./img/players/raiden.png" alt="Image">
-     <img class="fire" src="./img/players/ball_3.png" alt="Ball">
-     <img class="fire2" src="./img/lightning.png" alt="Image">
-     <img class="bloodSplash" src="./img/blood.png" alt="Blood">
- </div>
-</div>
-
-<div class="potion">
-    <img id="lifeImage" src="./img/potion.png" alt="Bottle">
-</div>
-
- <div id="hands">
-    <div class="one">
-        <span>1</span>
-        <img id="hands1" src="./img/players/hands41-removbg-preview.png" alt="Gun">
+        <div class="clickFight"> <!--добавил этот клас и повесил на него клик для звуков удара-->
+            <img class="playerImg" src="./img/players/raiden.png" alt="Image">
+            <img class="fire" src="./img/players/ball_3.png" alt="Ball">
+            <img class="fire2" src="./img/lightning.png" alt="Image">
+            <img class="bloodSplash" src="./img/blood.png" alt="Blood">
+        </div>
     </div>
-    <div class="two">
-        <span>2</span>
-        <img id="hands3" src="./img/players/hands3-removebg-preview.png" alt="Gun">
-     </div>
-     <div class="three">
-        <span>3</span>
-        <img id="hands4" src="./img/players/hands2-removebg-preview.png" alt="Gun">
+
+    <div class="potion">
+        <img id="lifeImage" src="./img/potion.png" alt="Bottle">
     </div>
+
+    <div id="hands">
+        <div class="one">
+            <span>1</span>
+            <img id="hands1" src="./img/players/hands41-removbg-preview.png" alt="Gun">
+        </div>
+        <div class="two">
+            <span>2</span>
+            <img id="hands3" src="./img/players/hands3-removebg-preview.png" alt="Gun">
+        </div>
+        <div class="three">
+            <span>3</span>
+            <img id="hands4" src="./img/players/hands2-removebg-preview.png" alt="Gun">
+        </div>
+    </div>
+
+    <div class="handsOfMainPlayer">
+        <img id="hands2" src="./img/players/hands2-removebg-preview.png" alt="Gun">
+    </div>
+
+    <div id="gameOver"></div>
+
+    <a href="./index.html"><div id="back" class="back">BACK</div></a>
 </div>
-
- <div class="handsOfMainPlayer">
-     <img id="hands2" src="./img/players/hands2-removebg-preview.png" alt="Gun">
-</div>
-
- <div id="gameOver"></div>
-
- <a href="./index.html"><div id="back" class="back">BACK</div></a>
 
     <script defer src="./js/level3.js"></script>
 </body>

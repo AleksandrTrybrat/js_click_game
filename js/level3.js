@@ -5,7 +5,7 @@ class Observer {
   this.events = {};
 }
   /*
-  написано так [eventName] потому-что это свойство объекта events, добавляем или удаляем свойства из объекта
+  написано [eventName] потому-что это свойство объекта events, добавляем или удаляем свойства из объекта
   */
   // Функция подписки на событие
   subscribe(eventName, callback) {
@@ -135,45 +135,78 @@ if (savedWeapon) {
   }
 }
 
-  /*
-  =================== ЗВУК УДАРА ПРИ КЛИКЕ НА ВРАГА =======================
-  */
-  
-// const roundOneEvil = document.querySelector('.clickFight')
-
-// const soundFight = new AudioFactory();
-// const roundSoundFight = audioFactory.create("/audio/fight2.mp3");
-// function fightRound() {
-//   roundSoundFight.play();
-// }
-// roundOneEvil.addEventListener("click", fightRound);
-
-const roundOneEvil = document.querySelector('.clickFight')
-
-let countShot = 1;
-roundOneEvil.addEventListener("click", () => {
-  // const soundFight = new AudioFactory();
-  const roundSoundFight = audioFactory.create("/audio/fight2.mp3");
-  // function fightRound() {
-    roundSoundFight.play();
-  // }
-
-  if (countShot === 4) {
-    // const fatallity = new AudioFactory();
-    const roundSoundFatallity = audioFactory.create("/audio/fatality.mp3");
-    roundSoundFatallity.play();
-  }
-  countShot++;
-});
-
-  /*
+/*
   =================== ДВИЖЕНИЕ ОРУЖИЯ ЗА КУРСОРОМ =========================
-  */
+*/
   
 const mousePositionForLevel3 = document.getElementById("hands2");
 document.body.addEventListener("mousemove", (event) => {
   mousePositionForLevel3.style.left = `${event.x -130}px`;
 });
+/*
+=================== / ДВИЖЕНИЕ ОРУЖИЯ ЗА КУРСОРОМ =========================
+*/
+
+
+/*
+=================== ЗВУК УДАРА ПРИ КЛИКЕ НА ВРАГА =======================
+*/
+
+// sum of bonus
+let bonusNumberCounter = 0;
+
+// constanta for bonus
+const BONUS_NUMBER = 100;
+
+const roundOneEvil = document.querySelector('.clickFight')
+
+let countShot = 1;
+roundOneEvil.addEventListener("click", () => {
+  const roundSoundFight = audioFactory.create("/audio/fight2.mp3");
+  roundSoundFight.play();
+
+  if (countShot === 4) {
+    const roundSoundFatallity = audioFactory.create("/audio/fatality.mp3");
+    roundSoundFatallity.play();
+  }
+  countShot++;
+
+  // ===================== bonus ====================================
+
+  //создаем контейнер для показа зачисления бонуса +100
+  const tagForBonus = document.createElement("div");
+  tagForBonus.classList.add("bonus");
+  document.body.append(tagForBonus);
+
+  //записываем в textContent конейнера +100
+  tagForBonus.textContent = "+" + BONUS_NUMBER;
+
+//анимируем показ зачислиных бонусов
+  tagForBonus.style.animation ="bonusAnime 2s linear forwards"
+
+//суммируем все бонусы
+  bonusNumberCounter += BONUS_NUMBER;
+
+//выводим сумму на страницу
+  containerForBonus.textContent = "Total bonus : " + bonusNumberCounter;
+
+  containerForBonus.style.backgroundColor = "rgb(122, 111, 111)";
+  containerForBonus.style.border = "2px solid rgb(245, 242, 242)";
+  containerForBonus.style.borderRadius = "20px";
+
+//если бонусов меньше 400 - жизни не пополняются
+
+  if (bonusNumberCounter >= 400) {
+  // Пополнение жизней по клику на бутылочку
+    const lifeImage = document.getElementById('lifeImage');
+    window.addEventListener('keydown', (e) => {
+      if (e.code === 'Digit4') {
+        increaseMainPlayerLives();
+      }
+    });
+  } 
+});
+
 
 const mainPlayerLives = document.querySelectorAll('.mainPlayerlifeRoad');
 const playerLives = document.querySelectorAll('.lifeRoad');
@@ -217,31 +250,20 @@ function updateMainPlayerLives() {
   }
 }
 
-// Пополнение жизней по клику на бутылочку
-const lifeImage = document.getElementById('lifeImage');
-// lifeImage.addEventListener('click', () => {
-//   increaseMainPlayerLives();
-// });
-window.addEventListener('keydown', (e) => {
-  if (e.code === 'Digit4') {
-    increaseMainPlayerLives();
-  }
-});
+
 let maxMainPlayerLife = 5;
 function increaseMainPlayerLives() {
   if (mainPlayerLife < maxMainPlayerLife) {
     mainPlayerLife++;
     mainPlayerLives[mainPlayerLife - 1].style.backgroundColor = "rgb(40, 76, 153)";
     lifeChangeSubject.notify(1);
+  // обнуление бонусов при пополнении жизней
+    if (bonusNumberCounter >= 400) {
+      bonusNumberCounter = 0; // обнуляем счетчик бонусов
+      containerForBonus.textContent = "Total bonus : " + bonusNumberCounter;
+    }
   }
 }
-// function updatePlayerLives() {
-//   if (playerLife > 0) {
-//     playerLife--;
-//     playerLives[playerLife].style.backgroundColor = "transparent";
-//     lifeChangeSubject.notify(-1);
-//   }
-// }
 
 clickFight.addEventListener('click', function() {
   if (playerLife > 0) {

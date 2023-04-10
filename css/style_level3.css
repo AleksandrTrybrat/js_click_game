@@ -162,7 +162,7 @@ html, body {
 
 .one span {
     position: absolute;
-    top: 40px;
+    top: -10px;
     right: 33px;
     z-index: 2;
     font-weight: 700;
@@ -171,7 +171,7 @@ html, body {
 }
 .two span {
     position: absolute;
-    top: 160px;
+    top: 110px;
     right: 33px;
     z-index: 2;
     font-weight: 700;
@@ -238,6 +238,7 @@ html, body {
     right: 10px;
     top: 10px;
     z-index: 2;
+    cursor: url(/img/cursor/cursor_3.png),pointer;
 }
 
 .back:hover {
@@ -266,4 +267,38 @@ a {
 	position: fixed;
 	bottom: 0;
 	left: 20px;
+}
+
+#containerForBonus {
+	position: relative;
+	top: 0;
+	height: 5vh;
+	width: 30vw;
+	display: inline-block;
+	vertical-align: middle;
+	left: 35vw;
+	text-align: center;
+	font-family: 'Permanent Marker', cursive;
+	font-size: 30px;
+	text-shadow: 2px 1px 5px rgb(248, 244, 244);
+	color: rgb(40, 76, 153);
+}
+
+.bonus {
+	height: 150px;
+	width: 150px;
+	font-size: 50px;
+	display: inline-block;
+	vertical-align: middle;
+	position: fixed;
+	left: 45vw;
+	font-family: 'Permanent Marker', cursive;
+	font-size: 70px;
+	text-shadow: 2px 1px 5px rgb(12, 12, 12);
+	color: rgb(40, 76, 153);
+	opacity: 1;
+}
+
+@keyframes bonusAnime {
+	to {opacity: 0;}
 }
