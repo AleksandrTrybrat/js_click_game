@@ -10,6 +10,7 @@ html, body {
 
 a {
     color: black;
+    cursor: url(/img/cursor/cursor_title.png), default;
 }
 
 .welcome {
