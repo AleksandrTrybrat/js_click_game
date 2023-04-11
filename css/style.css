@@ -18,6 +18,7 @@ a {
     width: 100vw;
     position: absolute;
     background-color: black;
+    color: #1f1f1f;
     z-index: 5;
     font-size: 70px;
     text-shadow: 2px 2px 2px rgb(186, 226, 43);
@@ -84,7 +85,14 @@ a {
 }
 
 
+h2 {
+    color: rgb(1, 116, 76);
+    text-align: center;
+}
 
+.luck {
+    color: red;
+}
 
 .modal {
     position: fixed;
@@ -114,7 +122,7 @@ a {
     transform: scale(0);
     transition: transform .8s;
     color: #000;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .modal__close-btn {
