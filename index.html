@@ -1,57 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./img/title/Mortal_Kombat_Logo.png">
-    <link rel="stylesheet" href="./css/style.css">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./img/title/Mortal_Kombat_Logo.png" />
+    <link rel="stylesheet" href="./css/style.css" />
+
     <title>Mortal Kombat</title>
-</head>
-<body>
-    
+  </head>
+  <body>
     <div class="welcome" id="welcome">
-        <span>Welcome to Mortal Kombat</span>
-        <img src="./img/title/title_img.gif" alt="Image">
-        <span>Click to continue</span>
-    </div>
-      
-    <div id="muted" class="muted__sound">
-        <img id="mutedTrue" src="./img/muted/muted-5.png" alt="voice_true" class="voice">
-        <img id="mutedFalse" src="./img/muted/muted-6.png" alt="voice_false" class="not__voice">
+      <span>Welcome to Mortal Kombat</span>
+      <img src="./img/title/title_img.gif" alt="Image" />
+      <span>Click to continue</span>
     </div>
 
-    <a href="./level1.html"><div id="mouseenter" class="start">START</div></a>  
-    <a href="https://www.google.com"><div id="mouseenter2" class="exit">EXIT</div></a>
+    <div id="muted" class="muted__sound">
+      <img
+        id="mutedTrue"
+        src="./img/muted/muted-5.png"
+        alt="voice_true"
+        class="voice"
+      />
+      <img
+        id="mutedFalse"
+        src="./img/muted/muted-6.png"
+        alt="voice_false"
+        class="not__voice"
+      />
+    </div>
+
+    <a href="./level1.html"><div id="mouseenter" class="start">START</div></a>
+    <a href="https://www.google.com"
+      ><div id="mouseenter2" class="exit">EXIT</div></a
+    >
     <div id="mouseenter3" class="rules">RULES</div>
 
-
-    
-
     <div class="modal" id="my-modal">
-        <div class="modal__box">
-            <button class="modal__close-btn" id="close-my-modal-btn">
-                <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
-                        fill="#333333" />
-                    <path d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z" fill="#333333" />
-                </svg>
-            </button>
-            <h2>Краткое описание игры и правил</h2>
+      <div class="modal__box">
+        <button class="modal__close-btn" id="close-my-modal-btn">
+          <svg
+            width="23"
+            height="25"
+            viewBox="0 0 23 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
+              fill="#333333"
+            />
+            <path
+              d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z"
+              fill="#333333"
+            />
+          </svg>
+        </button>
+        <h2>Краткое описание игры и правил</h2>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, obcaecati, vero, illum ipsa libero labore facilis quo iste numquam deserunt totam reprehenderit quod.</p>
+        <p>
+          Перед прохождением игры - обязательно ознакомься с правилами, чтоб не пропустить бонусы!
+        </p>
 
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae impedit at, beatae consectetur asperiores maiores? Veniam impedit doloribus hic, dolorum odio totam rerum excepturi dolor! Veniam molestiae voluptas obcaecati non natus quae corporis,
-                cum deleniti quo, cumque culpa exercitationem ex at numquam. Illo, voluptas itaque corporis amet consequuntur eius molestiae repudiandae rerum, sit id modi inventore. Ut, reiciendis laudantium neque nesciunt ex labore autem dolorum consequuntur
-                accusantium molestias perspiciatis corporis illo sit, architecto fuga! Quo neque odio esse sapiente sit reprehenderit pariatur perspiciatis quisquam nulla, voluptas saepe itaque quia provident perferendis ducimus, alias atque aliquid cumque
-                nihil laudantium recusandae suscipit!
-            </p>
-        </div>
+        <p>
+            1) Для прохождения уровня необходимо нанести 5 ударов противнику, для нанесени удара 
+            наведи мышкой на цель и кликни мышкой.<br>
+            2) За каждый удар начисляется 100 баллов, при накоплении 400 баллов - можно докупить 
+            одну жизнь (для покупки нажми на клавиатуре цифру 4 или кликни по пузырьку с зельем
+             - жизнь автоматически добавиться, а бонусы спишутся).<br>
+            3)Для активизации брони - зажми пробел.<br>
+            4)Выбор оружия расположен с правой стороны экрана, для смены - кликни по необходимому.
+            Выбор оружия сохраняется в следующем уровне!<br>
+            Удачи!
+        </p>
+      </div>
     </div>
 
-
-    <script defer src="./js/main.js"></script> 
-</body>
+    <script defer src="./js/main.js"></script>
+  </body>
 </html>
