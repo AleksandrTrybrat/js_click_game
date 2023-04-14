@@ -185,6 +185,13 @@ html, body {
 }
 
 
+.shot {
+	position: fixed;
+	top: 530px;
+	left: -20px;
+	opacity: 0;
+}
+
 @keyframes playerRunning {
 	to {
 			left: 20%;

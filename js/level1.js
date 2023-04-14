@@ -26,13 +26,16 @@ function windowLoad() {
 // ======= Эффект дождя
 
 
+  /*
+  написано [eventName] потому-что это свойство объекта events, добавляем или 
+  удаляем свойства из объекта
+  */
+
+
 class Observer {
   constructor() {
   this.events = {};
 }
-  /*
-  написано [eventName] потому-что это свойство объекта events, добавляем или удаляем свойства из объекта
-  */
   // Функция подписки на событие
   subscribe(eventName, callback) {
     if (!this.events[eventName]) {
@@ -115,54 +118,100 @@ back.addEventListener("mouseover", clickSound);
   /*
   =================== СМЕНА ОРУЖИЯ =======================
   */
+    // Добавляем слушатель событий на кнопки выбора оружия
+const hands1Gun = document.querySelector('#hands1');
+const hands3Gun = document.querySelector('#hands3');
+const hands4Gun = document.querySelector('#hands4');
 
-const hands1Gun = document.querySelector("#hands1");
-const hands3Gun = document.querySelector("#hands3");
-const hands2Gun = document.querySelector("#hands2");
-const hands4Gun = document.querySelector("#hands4");
-  
-// Save localStorage
+const shotClass = document.querySelector(".shot");
+
+  // Save localStorage
 function saveWeaponChoice(weapon) {
   localStorage.setItem('weaponChoice', weapon);
 }
-
+  
+  // Функция для получения выбора оружия из localStorage
+function getWeaponChoice() {
+  return localStorage.getItem('weaponChoice');
+}
+// Функция, которая будет уведомлять наблюдателей (функции), что оружие было изменено
+function notifyWeaponChange(weapon) {
+  observer.notify('weaponChange', weapon);
+}
+// Подписываем функцию changeWeaponChoice на событие 'weaponChange'
+observer.subscribe('weaponChange', changeWeaponChoice);
+  
+function changeWeaponChoice(weapon) {
+  const hands2Gun = document.querySelector('#hands2');
+  if (weapon === 'hands41') {
+    hands2Gun.src = '/img/players/hands41-removbg-preview.png';
+  } else if (weapon === 'hands3') {
+    hands2Gun.src = '/img/players/hands3-removebg-preview.png';
+  } else if (weapon === 'hands2') {
+    hands2Gun.src = '/img/players/hands2-removebg-preview.png';
+  }
+}
+  
+  
 hands1Gun.addEventListener("click", () => {
-  hands2Gun.src = "/img/players/hands41-removbg-preview.png";
   saveWeaponChoice('hands41');
+  notifyWeaponChange('hands41');
+  shotClass.style.position = 'fixed';
+  shotClass.style.top = '420px';
+  shotClass.style.left = '-20px';
+});
+    
+hands3Gun.addEventListener("click", function() {
+  saveWeaponChoice('hands3');
+  notifyWeaponChange('hands3');
 });
   
-hands3Gun.addEventListener("click", function() {
-  hands2Gun.src = "/img/players/hands3-removebg-preview.png";
-  saveWeaponChoice('hands3');
-});
-
 hands4Gun.addEventListener("click", function() {
-  hands2Gun.src = "/img/players/hands2-removebg-preview.png";
   saveWeaponChoice('hands2');
+  notifyWeaponChange('hands2');
+  shotClass.style.position = 'fixed';
+  shotClass.style.top = '530px';
+  shotClass.style.left = '-20px';
 });
-
-
+  
+  
 window.addEventListener("keydown", (e) => {
   if (e.code === 'Digit1') {
-    hands2Gun.src = "/img/players/hands41-removbg-preview.png";
     saveWeaponChoice('hands41');
+    notifyWeaponChange('hands41');
+    shotClass.style.position = 'fixed';
+    shotClass.style.top = '420px';
+    shotClass.style.left = '-20px';
   } else if (e.code === 'Digit2') {
-    hands2Gun.src = "/img/players/hands3-removebg-preview.png";
     saveWeaponChoice('hands3');
+    notifyWeaponChange('hands3');		
   } else if (e.code === 'Digit3') {
-    hands2Gun.src = "/img/players/hands2-removebg-preview.png";
     saveWeaponChoice('hands2');
+    notifyWeaponChange('hands2');
+    shotClass.style.position = 'fixed';
+    shotClass.style.top = '530px';
+    shotClass.style.left = '-20px';
   }
 });
   
-
+// Вызываем функцию changeWeaponChoice() при загрузке страницы, чтобы установить изображение выбранного оружия
+changeWeaponChoice(getWeaponChoice());
   /*
   =================== ДВИЖЕНИЕ ОРУЖИЯ ЗА КУРСОРОМ =========================
   */
   
-const mousePositionForLevel3 = document.getElementById("hands2");
+const mousePositionForLevel1 = document.getElementById("hands2");
+const mousePositionForLevel1Shot = document.getElementById("shot");
 document.body.addEventListener("mousemove", (event) => {
-  mousePositionForLevel3.style.left = `${event.x -130}px`;
+  mousePositionForLevel1.style.left = `${event.x -130}px`;
+  mousePositionForLevel1Shot.style.left = `${event.x -130}px`;
+});
+
+document.body.addEventListener('mousedown', () => {
+  shotClass.style.opacity = '0.7';
+});
+document.body.addEventListener('mouseup', () => {
+  shotClass.style.opacity = '0';
 });
   /*
   =================== / ДВИЖЕНИЕ ОРУЖИЯ ЗА КУРСОРОМ =========================
@@ -256,7 +305,6 @@ class LifeChangeSubject {
   }
 }
 
-
 const lifeChangeSubject = new LifeChangeSubject();
 
 function updateMainPlayerLives() {
@@ -283,11 +331,6 @@ function increaseMainPlayerLives() {
     mainPlayerLife++;
     mainPlayerLives[mainPlayerLife - 1].style.backgroundColor = "rgb(153, 0, 255)";
     lifeChangeSubject.notify(1);
-    // // обнуление бонусов при пополнении жизней
-    // if (bonusNumberCounter >= 400) {
-    //   bonusNumberCounter = 0; // обнуляем счетчик бонусов
-    //   containerForBonus.textContent = "Total bonus : " + bonusNumberCounter;
-    // }
   }
 }
 
