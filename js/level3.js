@@ -342,6 +342,11 @@ clickFight.addEventListener('click', function() {
   }
   if (playerLife === 0) {
     clearInterval(idInterval);
+    window.addEventListener('mousemove', () => {
+      const backSound = new Audio();
+      backSound.src = './audio/flawless-victory.mp3';
+      backSound.play(); 
+      }, {once: true});
     let gameOver = document.getElementById('gameOver');
     gameOver.style.backgroundImage = `url(./img/win.png)`;
     gameOver.style.backgroundSize = "cover";
