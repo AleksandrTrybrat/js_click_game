@@ -5,7 +5,6 @@ window.addEventListener('mousemove', () => {
 const backSound = new Audio();
 backSound.src = './audio/заднийФон.mp3';
 backSound.play(); 
-backSound.volume(0.5);
 }, {once: true});
 
 // Эффект дождя
@@ -259,7 +258,7 @@ roundOneEvil.addEventListener("click", () => {
   //записываем в textContent конейнера +100
   tagForBonus.textContent = "+" + BONUS_NUMBER;
 
-//анимируем показ зачислиных бонусов
+//анимируем показ зачислeных бонусов
   tagForBonus.style.animation ="bonusAnime 2s linear forwards"
 
 //суммируем все бонусы

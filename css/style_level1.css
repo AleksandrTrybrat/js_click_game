@@ -286,8 +286,20 @@ html, body {
 
 #hands2 {
     position: fixed;
-    bottom: 0;
+    bottom: -20px;
     left: 0;
+}
+
+@keyframes attack {
+    0% {
+        transform: skew(0deg);
+    }
+    50% {
+        transform: skew(-5deg,7deg);
+    } 
+    100% {
+        transform: skew(0deg);
+    }
 }
 
 .back {
