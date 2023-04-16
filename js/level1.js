@@ -1,5 +1,13 @@
 'use strict';
 
+
+window.addEventListener('mousemove', () => {
+const backSound = new Audio();
+backSound.src = './audio/заднийФон.mp3';
+backSound.play(); 
+backSound.volume(0.5);
+}, {once: true});
+
 // Эффект дождя
 function rain() {
 	const rainContainer = document.querySelector('.rain');
