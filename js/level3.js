@@ -1,17 +1,12 @@
 'use strict';
 
 
-
-window.addEventListener(
-  'mousemove',
-  () => {
-    const backSound = new Audio();
-    backSound.src = './audio/заднийФон.mp3';
-    backSound.play();
-    backSound.volume(0.5);
-  },
-  { once: true }
-);
+window.addEventListener('mousemove', () => {
+  const backSound = new Audio();
+  backSound.src = 'audio/заднийФон.mp3';
+  backSound.play();
+  backSound.volume(0.5);
+  },{ once: true });
 
 // Эффект дождя
 function rain() {
@@ -98,7 +93,7 @@ lastRound.onclick = () => {
   */
 // Создаем экземпляр фабрики AudioFactory
 const audioFactory = new AudioFactory();
-const clickRound = audioFactory.create('/audio/round3.mp3');
+const clickRound = audioFactory.create('audio/round3.mp3');
 function playClickRound() {
   clickRound.play();
 }
@@ -107,20 +102,16 @@ function playClickRound() {
 observer.subscribe('mouseover', playClickRound);
 
 // Добавляем слушатель события на всю страницу
-document.body.addEventListener(
-  'mouseover',
-  () => {
+document.body.addEventListener('mouseover', () => {
     // Оповещаем об изменении события
     observer.notify('mouseover');
-  },
-  { once: true }
-);
+  },{ once: true });
 
 /*
   =================== КЛИКИ ПО КНОПКАМ =======================
-  */
+*/
 const clickBtn = new AudioFactory();
-const clickBtnGun = audioFactory.create('/audio/click.mp3');
+const clickBtnGun = audioFactory.create('audio/click.mp3');
 function clickSound() {
   clickBtnGun.play();
 }
@@ -138,11 +129,11 @@ back.addEventListener('mouseover', clickSound);
 function changeWeaponChoice(weapon) {
   const hands2Gun = document.querySelector('#hands2');
   if (weapon === 'hands41') {
-    hands2Gun.src = '/img/players/hands41-removbg-preview.png';
+    hands2Gun.src = 'img/players/hands41-removbg-preview.png';
   } else if (weapon === 'hands3') {
-    hands2Gun.src = '/img/players/hands3-removebg-preview.png';
+    hands2Gun.src = 'img/players/hands3-removebg-preview.png';
   } else if (weapon === 'hands2') {
-    hands2Gun.src = '/img/players/hands2-removebg-preview.png';
+    hands2Gun.src = 'img/players/hands2-removebg-preview.png';
   }
 }
 
@@ -224,11 +215,11 @@ const roundOneEvil = document.querySelector('.clickFight');
 
 let countShot = 1;
 roundOneEvil.addEventListener('click', () => {
-  const roundSoundFight = audioFactory.create('/audio/fight2.mp3');
+  const roundSoundFight = audioFactory.create('audio/fight2.mp3');
   roundSoundFight.play();
 
   if (countShot === 4) {
-    const roundSoundFatallity = audioFactory.create('/audio/fatality.mp3');
+    const roundSoundFatallity = audioFactory.create('audio/fatality.mp3');
     roundSoundFatallity.play();
   }
   countShot++;
@@ -307,15 +298,11 @@ function updateMainPlayerLives() {
     clearInterval(idInterval);
     let gameOver = document.getElementById('gameOver');
     gameOver.style.zIndex = 0;
-    gameOver.addEventListener(
-      'mouseenter',
-      () => {
-        const audioLaughs = new Audio();
-        audioLaughs.src = '/audio/ha_ha_ha.mp3';
-        audioLaughs.play();
-      },
-      { once: true }
-    );
+    gameOver.addEventListener('mouseenter', () => {
+      const audioLaughs = new Audio();
+      audioLaughs.src = 'audio/ha_ha_ha.mp3';
+      audioLaughs.play();
+    },{ once: true });
   }
 }
 
@@ -337,17 +324,13 @@ clickFight.addEventListener('click', function () {
   }
   if (playerLife === 0) {
     clearInterval(idInterval);
-    window.addEventListener(
-      'mousemove',
-      () => {
+    window.addEventListener('mousemove', () => {
         const backSound = new Audio();
-        backSound.src = './audio/flawless-victory.mp3';
+        backSound.src = 'audio/flawless-victory.mp3';
         backSound.play();
-      },
-      { once: true }
-    );
+      },{ once: true });
     let gameOver = document.getElementById('gameOver');
-    gameOver.style.backgroundImage = `url(./img/win.png)`;
+    gameOver.style.backgroundImage = `url(img/win.png)`;
     gameOver.style.backgroundSize = 'cover';
     gameOver.style.zIndex = 2;
   }

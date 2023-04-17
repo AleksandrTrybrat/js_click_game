@@ -3,8 +3,7 @@
 // приветствие
 
 welcome.onclick = () => {
-    welcome.style.zIndex = -1;
-    // soundIntro ();
+    welcome.style.display = "none";
     audio.play();
 }
 
@@ -13,7 +12,7 @@ welcome.onclick = () => {
 
 function clickTitleSound() {
     const clickSound = new Audio();
-    clickSound.src = "/audio/click.mp3";
+    clickSound.src = "audio/click.mp3";
     clickSound.play();
 }
 
@@ -26,7 +25,7 @@ mouseenter3.addEventListener("mouseover", clickTitleSound);
 // главный саундтрек 
 
 // Создаем объект Audio
-const audio = new Audio('/audio/sound-title2.mp3');
+const audio = new Audio('audio/sound-title2.mp3');
 audio.play();
 audio.loop = true; 
 
