@@ -183,13 +183,6 @@ html, body {
     animation: 3s bloodSplash 0.05s linear infinite;
 }
 
-.shot {
-    position: fixed;
-    top: 530px;
-    left: -20px;
-    opacity: 0;
-}
-
 
 @keyframes playerRunning {
     to {
