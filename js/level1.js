@@ -1,10 +1,10 @@
 'use strict';
 
-window.addEventListener('mousemove', () => {
+
+window.addEventListener('click', () => {
   const backSound = new Audio();
   backSound.src = 'audio/заднийФон.mp3';
   backSound.play();
-  backSound.volume(0.5);
 },{ once: true });
 
 // Эффект дождя
@@ -90,7 +90,8 @@ roundFirst.onclick = () => {
 };
 /*
   =================== ОЗВУЧКА РАУНД 1 =======================
-  */
+*/
+
 // Создаем экземпляр фабрики AudioFactory
 const audioFactory = new AudioFactory();
 const clickRound = audioFactory.create('audio/round1.mp3');
@@ -98,18 +99,16 @@ function playClickRound() {
   clickRound.play();
 }
 
-// Подписываемся на событие mouseover
-observer.subscribe('mouseover', playClickRound);
+// Подписываемся на событие click
+observer.subscribe('click', playClickRound);
+
+
 
 // Добавляем слушатель события на всю страницу
-document.body.addEventListener(
-  'mouseover',
-  () => {
-    // Оповещаем об изменении события
-    observer.notify('mouseover');
-  },
-  { once: true }
-);
+document.body.addEventListener('click', () => {
+  // Оповещаем об изменении события
+  observer.notify('click');
+},{ once: true });
 
 /*
   =================== КЛИКИ ПО КНОПКАМ =======================
