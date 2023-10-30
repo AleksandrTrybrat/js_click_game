@@ -1,5 +1,21 @@
 # js_click_game
 
+Brief description of the game and rules
+
+Before passing the game - be sure to read the rules, so as not to miss bonuses!
+
+To pass the level you need to make 5 blows to the enemy, to make a blow point the mouse at the target and click the mouse.
+
+For each blow you get 100 points, if you accumulate 400 points you can buy one life (to buy a life press number 4 on the keyboard - the life will be automatically added and bonuses will be deducted).
+
+To activate armor - press the space bar.
+
+Weapon selection is located on the right side of the screen, to change - click on the necessary or press numbers 1, 2, 3. The selected weapon is saved in the next level!
+
+GOOD LUCK!
+
+//======================================
+
 Краткое описание игры и правил
 
 Перед прохождением игры - обязательно ознакомься с правилами, чтоб не пропустить бонусы!
